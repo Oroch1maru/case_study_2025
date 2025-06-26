@@ -1,4 +1,4 @@
-from library_exporter import LibraryExtractor
+from src.library_exporter import LibraryExtractor
 
 if __name__ == "__main__":
     extractor = LibraryExtractor()
