@@ -30,3 +30,9 @@ jobs:
         env:
           GOLEMIO_API_KEY: ${{ secrets.GOLEMIO_API_KEY }}
         run: python main.py
+
+      - name: Upload CSV artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: libraries
+          path: output/libraries.csv
