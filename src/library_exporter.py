@@ -1,9 +1,9 @@
 import os
 from dotenv import load_dotenv
 
-from library_record import LibraryRecord
-from csv_exporter import CsvExporter
-from golemio_client import GolemioClient
+from src.library_record import LibraryRecord
+from src.csv_exporter import CsvExporter
+from src.golemio_client import GolemioClient
 
 
 class LibraryExtractor:
