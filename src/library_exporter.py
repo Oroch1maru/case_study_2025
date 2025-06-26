@@ -8,7 +8,7 @@ from src.golemio_client import GolemioClient
 
 class LibraryExtractor:
     def __init__(self):
-        load_dotenv("../.env")
+        load_dotenv(".env")
         api_key = os.getenv("GOLEMIO_API_KEY")
         self.client = GolemioClient(api_key)
         self.exporter = CsvExporter("output/libraries.csv")

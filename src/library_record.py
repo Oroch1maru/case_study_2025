@@ -1,10 +1,10 @@
 class LibraryRecord:
-    def __init__(self, raw):
+    def __init__(self, raw:dict):
         self.props = raw.get("properties", {})
         self.geometry = raw.get("geometry", {})
         self.address = self.props.get("address", {})
 
-    def format_opening_hours(self):
+    def format_opening_hours(self) -> str:
         entries = self.props.get("opening_hours", [])
         result = []
         for entry in entries:
@@ -18,7 +18,7 @@ class LibraryRecord:
                 result.append(f"{day}: {opens} - {closes} (Description: {desc})")
         return "; ".join(result)
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         coords = self.geometry.get("coordinates", [None, None])
         city = self.address.get("address_locality", "").split()[0]
 
