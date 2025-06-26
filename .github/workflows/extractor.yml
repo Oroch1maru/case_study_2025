@@ -4,7 +4,7 @@ name: Daily Library Extractor
 
 on:
   schedule:
-    - cron: '0 5 * * *'
+    - cron: '12 18 * * *'
   workflow_dispatch:    
 
 jobs:
