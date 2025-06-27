@@ -37,7 +37,7 @@ GOLEMIO_API_KEY=your_api_key_here
 
 ```bash
 git clone https://github.com/Oroch1maru/case_study_2025.git
-cd case_study_2025
+cd case_study_2025/task_2
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
