@@ -2,14 +2,14 @@
 
 ### 1. Navrhnite dátový model vo forme ER diagramu (Entity-Relationship diagram), ktorý pokryje nasledovné požiadavky:
 
-![ER-diagram](../../../../../Downloads/images/diagram.png)  
+![ER-diagram](images/diagram.png)  
 *Diagram znázorňuje relačný model databázy pre e-commerce aplikáciu.*
 
 ---
 
 ### 2. Definujte dimenzie a faktové tabuľky pre analytické potreby:
 
-![Snowflake scheme](../../../../../Downloads/images/snowflake_scheme.png)  
+![Snowflake scheme](images/snowflake_scheme.png)  
 *Analytický model vo forme snowflake schémy s dimenziami a faktovou tabuľkou.*
 
 ---
