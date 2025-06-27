@@ -1,0 +1,4 @@
+task_2/.env
+task_2/src/__pycache__
+.idea
+task_2/output/
