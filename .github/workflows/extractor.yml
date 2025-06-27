@@ -21,18 +21,18 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r task_2/requirements.txt
       
       - name: Create output directory
-        run: mkdir -p output
+        run: mkdir -p task_2/output
       
       - name: Run extractor
         env:
           GOLEMIO_API_KEY: ${{ secrets.GOLEMIO_API_KEY }}
-        run: python main.py
+        run: python task_2/main.py
 
       - name: Upload CSV artifact
         uses: actions/upload-artifact@v4
         with:
           name: libraries
-          path: output/libraries.csv
+          path: task_2/output/libraries.csv
