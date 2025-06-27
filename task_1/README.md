@@ -1,4 +1,4 @@
-## E-commerce Data Model
+## Návrh dátového modelu pre e-commerce platformu
 
 ### 1. Navrhnite dátový model vo forme ER diagramu (Entity-Relationship diagram), ktorý pokryje nasledovné požiadavky:
 

@@ -1,17 +1,17 @@
-# Golemio Municipal Libraries Extractor
+## Integrácia dát
 
-This Python project extracts data about municipal libraries from the [Golemio API](https://api.golemio.cz) and exports selected fields into a CSV file.
+Tento Python projekt extrahuje údaje o mestských knižniciach z [Golemio API](https://api.golemio.cz) a exportuje vybrané polia do CSV súboru.
 
-## Features
+## Funkcionalita
 
-- Connects to the public Golemio API
-- Extracts and transforms data from Prague municipal libraries
-- Exports data to a semicolon-separated CSV file
-- Scheduled to run daily at 7:00 AM (Prague time) via GitHub Actions
+- Pripojenie k verejnému Golemio API
+- Extrakcia a transformácia údajov o mestských knižniciach v Prahe
+- Export údajov do CSV súboru s bodkočiarkovým oddeľovačom
+- Automatické spustenie každý deň o 7:00 (pražského času) pomocou GitHub Actions
 
-## Extracted fields
+## Extrahované polia
 
-The output CSV file includes the following parameters:
+Výstupný CSV súbor obsahuje nasledujúce parametre:
 
 1. ID knižnice — Library ID  
 2. Názov knižnice — Library name  
@@ -24,16 +24,16 @@ The output CSV file includes the following parameters:
 9. Zemepisná dĺžka — Longitude  
 10. Čas otvorenia — Opening hours  
 
-## Requirements
+## Požiadavky
 
 - Python 3.11+
-- `.env` file with your API key:
+- Súbor `.env` s vaším API kľúčom::
 
 ```env
 GOLEMIO_API_KEY=your_api_key_here
 ```
 
-## Running locally
+## Lokálne spustenie
 
 ```bash
 git clone https://github.com/Oroch1maru/case_study_2025.git
@@ -44,12 +44,12 @@ pip install -r requirements.txt
 python main.py
 ```
 
-## GitHub Actions automation
+## Automatizácia cez GitHub Actions
 
-This project uses GitHub Actions to run daily at **07:00 Prague time (05:00 UTC)** and upload the latest CSV file as an artifact.  
-You can also trigger it manually from the GitHub Actions tab.
+Tento projekt používa GitHub Actions na denné spustenie o **07:00 (pražského času, 05:00 UTC)** a nahráva aktuálny CSV súbor ako artefakt.
+Proces je možné spustiť aj manuálne v záložke GitHub Actions.
 
-## Output
+## Výstup
 
-The CSV file is saved to the `output/` directory and is also available as a downloadable GitHub artifact.
+CSV súbor sa uloží do priečinka `output/` a je taktiež dostupný na stiahnutie ako GitHub artefakt.
 
