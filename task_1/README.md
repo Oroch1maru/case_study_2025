@@ -57,13 +57,6 @@ Takto navrhnutý model zabezpečuje minimálnu redundanciu, konzistenciu údajov
 ### 4. SQL schéma na vytvorenie tabuliek:
 
 ```sql
-DROP TABLE IF EXISTS "transactions" CASCADE;
-DROP TABLE IF EXISTS "orderItems" CASCADE;
-DROP TABLE IF EXISTS "orders" CASCADE;
-DROP TABLE IF EXISTS "products" CASCADE;
-DROP TABLE IF EXISTS "customers" CASCADE;
-DROP TABLE IF EXISTS "categories" CASCADE;
-
 CREATE TABLE "products" (
     "id" integer PRIMARY KEY,
     "name" varchar(255),
@@ -124,3 +117,37 @@ ALTER TABLE "categories" ADD FOREIGN KEY ("parent_category_id") REFERENCES "cate
 ### 5. Diskusia
 
 #### Aké kompromisy by ste spravili medzi normalizáciou a výkonnosťou?
+
+V závislosti od cieľov systému by som urobil kompromis medzi normalizáciou a výkonom. 
+Napríklad:
+
+  - ponechal normalizáciu tam, kde sú časté zápisy a aktualizácie (pre zachovanie integrity),
+  
+  - no v častiach, kde sa často vykonávajú analytické dotazy, by som niektoré tabuľky denormalizoval (napr. zlúčil tabuľky alebo duplikoval vybrané údaje), aby sa zvýšila rýchlosť čítania.
+
+#### Ako by ste riešili historické zmeny (napr. zmena ceny produktu, adresa zákazníka)?
+
+Skúmal by som historické zmeny, aby som mohol analyzovať údaje v čase. Znamená to, že by som ukladal nielen aktuálny stav, ale aj predchádzajúce hodnoty.
+
+Napríklad:
+
+  - pri cene produktu by som sledoval, ako sa menila v priebehu roka a ako tieto zmeny ovplyvňovali správanie zákazníkov a tržby;
+
+  - pri adresách zákazníkov by som si vedel spätne zistiť, z akého regiónu zákazník objednával v danom čase — napríklad kvôli logistike alebo segmentácii.
+
+#### Aké indexy by ste pridali na zlepšenie výkonnosti dotazov?
+
+Na zlepšenie výkonnosti dotazov by som pridal indexy na stĺpce, ktoré sa často používajú vo filtrovaní , triedeníalebo spojeniach. Konkrétne:
+
+Indexy v transakčnej databáze:
+  - orders(customer_id) – zrýchľuje dotazy typu „objednávky zákazníka“.
+
+  - orderItems(order_id) – efektívne pre zobrazenie položiek v objednávke.
+
+  - orderItems(product_id) – ak potrebujeme zistiť, koľkokrát sa produkt predal.
+
+  - transactions(order_id) – pre rýchly prístup k transakciám objednávky.
+
+  - customers(email) – ak vyhľadávame zákazníka podľa emailu (napr. pri login/CRM).
+
+  - products(category_id) – filtrovanie produktov podľa kategórie.
