@@ -11,7 +11,8 @@ class LibraryExtractor:
         load_dotenv(".env")
         api_key = os.getenv("GOLEMIO_API_KEY")
         self.client = GolemioClient(api_key)
-        self.exporter = CsvExporter("output/libraries.csv")
+        output_path = os.path.join(os.path.dirname(__file__), "..", "output", "libraries.csv")
+        self.exporter = CsvExporter(os.path.abspath(output_path))
 
     def run(self):
         raw_data = self.client.fetch_libraries()
