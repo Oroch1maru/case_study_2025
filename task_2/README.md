@@ -27,7 +27,7 @@ Výstupný CSV súbor obsahuje nasledujúce parametre:
 ## Požiadavky
 
 - Python 3.11+
-- Súbor `.env` s vaším API kľúčom::
+- Súbor `.env` s vaším API kľúčom, ktorý bude umiestnený v priečinku `/task_2`:
 
 ```env
 GOLEMIO_API_KEY=your_api_key_here
